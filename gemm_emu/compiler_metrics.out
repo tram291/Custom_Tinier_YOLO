@@ -1,0 +1,10 @@
+gemm_nn9W,target_fmax,200
+gemm_nn9W,gemm_nn9W.B1,II,1
+gemm_nn9W,gemm_nn9W.B2,II,1
+gemm_nn9W,gemm_nn9W.B4,II,1
+gemm_nn9W,gemm_nn9W.B5,II,4
+gemm_nnfW,target_fmax,200
+gemm_nnfW,gemm_nnfW.B1,II,1
+gemm_nnfW,gemm_nnfW.B2,II,1
+gemm_nnfW,gemm_nnfW.B4,II,1
+gemm_nnfW,gemm_nnfW.B5,II,4

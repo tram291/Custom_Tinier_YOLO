@@ -1,0 +1,726 @@
+<KERNEL_LIST>
+	<PROGRAM_GLOBAL_MEM_SIZE value="0" />
+	<KERNEL_BUNDLE name="gemm_nn9W" compute_units="1">
+	<KERNEL name="gemm_nn9W" filename="kernel_hdl/gemm_nn9W/gemm_nn9W_function_wrapper.vhd" version="1" cosim_name="gemm_nn9W" enable_global_profiling="1" workgroup_invariant="0" has_global_atomics="0" num_vector_lanes="1" num_profiling_signals="0" arbitration_latency="6" kernel_side_mem_latency="10">
+		<RESOURCE_INFO>
+			<ID value="0" />
+			<LOCAL_MEM aspace="5" begin="0" next="32768" banks="1" width="128" static_demand="24576" num_groups="1" has_atomics="0" ports="12" write_ports="12" rdw_mode="0" repl_fac="3" ic_req_latency="0" ic_rrp_latency="0" ic_wrp_latency="0" req_pipe_interval="0" ret_fanout="0" num_ports_per_phys_mem="4" phys_mem_latency="4" maximum_depth="0" enable="0" ram_mode="1" preferred_width="160" use_mif_file="0">
+				<BANK id="0">
+					<PORT id="0" register="0" />
+					<PORT id="1" register="0" />
+					<PORT id="2" register="0" />
+					<PORT id="3" register="0" />
+					<PORT id="4" register="0" />
+					<PORT id="5" register="0" />
+					<PORT id="6" register="0" />
+					<PORT id="7" register="0" />
+					<PORT id="8" register="0" />
+					<PORT id="9" register="0" />
+					<PORT id="10" register="0" />
+					<PORT id="11" register="0" />
+				</BANK>
+			</LOCAL_MEM>
+			<AGGREGATE_STATIC_LOCAL_MEM_SIZE value="24576" />
+			<MAX_WORK_GROUP_SIZE value="1" />
+			<REQUIRED_WORK_GROUP_SIZE x="1" y="1" z="1" />
+		</RESOURCE_INFO>
+		<CONFIGURATION>
+			<INTERFACE port="clock_reset" type="clock"/>
+			<INTERFACE port="cra_irq" type="irq"/>
+			<INTERFACE port="cra" type="slave" cosim_name="" width="64" size="256" latency="0" />
+		</CONFIGURATION>
+		<REQUIREMENTS>
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/linux64/lib/dspba/Libraries/vhdl/base/dspba_library_package.vhd" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/linux64/lib/dspba/Libraries/vhdl/base/dspba_library.vhd" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_data_fifo.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_fifo.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_ll_fifo.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_ll_ram_fifo.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_valid_fifo_counter.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_dspba_valid_fifo_counter.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_staging_reg.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/hld_fifo.sv" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/hld_fifo_zero_width.sv" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_high_speed_fifo.sv" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_low_latency_fifo.sv" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_zero_latency_fifo.sv" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_fanout_pipeline.sv" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_std_synchronizer_nocut.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_tessellated_incr_decr_threshold.sv" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_tessellated_incr_lookahead.sv" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_reset_handler.sv" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_lfsr.sv" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_pop.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_dspba_buffer.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_pipeline.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_push.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_token_fifo_counter.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_full_detector.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/lsu_top.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/lsu_permute_address.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/lsu_pipelined.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/lsu_enabled.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/lsu_basic_coalescer.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/lsu_simple.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/lsu_streaming.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/lsu_burst_master.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/lsu_bursting_load_stores.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/lsu_non_aligned_write.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/lsu_read_cache.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/lsu_atomic.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/lsu_prefetch_block.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/lsu_wide_wrapper.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/lsu_streaming_prefetch.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_aligned_burst_coalesced_lsu.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_toggle_detect.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_debug_mem.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/lsu_burst_coalesced_pipelined_write.sv" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/lsu_burst_coalesced_pipelined_read.sv" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_fifo_stall_valid_lookahead.sv" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_fp_convert_from_half.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_optimized_clz_27.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_fp_custom_clz.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_fp_convert_to_half.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_loop_limiter.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_clock2x_holder.v" />
+			<FILE name="kernel_hdl/gemm_nn9W/gemm_nn9W_function_wrapper.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/gemm_nn9W_function.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/bb_gemm_nn9W_B1_sr_1.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/bb_gemm_nn9W_B2.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/gemm_nn9W_B2_branch.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/bb_gemm_nn9W_B2_stall_region.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/gemm_nn9W_B2_merge_reg.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_load_memcoalesce_b_load_0_gemm_nn9w101.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/readdata_reg_memcoalesce_B_load_0_gemm_nn9W0.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_sfc_c0_for_body4_gemm_nn9w_c0_enter335_gemm_nn9w.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_sfc_exit_c0_for_body4_gemm_nn9w_c0A0Z340_gemm_nn9w100.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_sfc_exit_c0_for_body4_gemm_nn9w_c0A0Z9w1009_data_fifo.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_sfc_exit_c0_for_body4_gemm_nn9w_c0A0Z9w_full_detector.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_sfc_logic_c0_for_body4_gemm_nn9w_c0_enA0Zr335_gemm_nn9w34.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pipeline_keep_going_gemm_nn9w40.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i1_forked303319_pop31_gemm_nn9w88.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i1_memdep_phi261_pop11324_pop37_gemm_nn9w73.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i1_notexit300322_pop35_gemm_nn9w96.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i1_pop34_gemm_nn9w92.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i32_j_076_pop9321_pop33_gemm_nn9w55.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i32_k_169_pop26_gemm_nn9w59.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i32_lda_sync_buffer320_pop32_gemm_nn9w51.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i6_cleanups_pop30_gemm_nn9w36.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i6_initerations_pop29_gemm_nn9w42.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_forked303319_push31_gemm_nn9w90.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_lastiniteration_gemm_nn9w49.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_memdep_phi261_pop11324_push37_gemm_nn9w75.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_notexit300322_push35_gemm_nn9w98.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_notexitcond_gemm_nn9w83.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_push34_gemm_nn9w94.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i32_j_076_pop9321_push33_gemm_nn9w57.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i32_k_169_push26_gemm_nn9w77.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i32_lda_sync_buffer320_push32_gemm_nn9w53.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i6_cleanups_push30_gemm_nn9w86.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i6_initerations_push29_gemm_nn9w45.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_syncbuf_b_sync_buffer_gemm_nn9w63.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_syncbuf_k_sync_buffer284_gemm_nn9w79.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_syncbuf_k_sync_buffer_gemm_nn9w69.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_syncbuf_n_sync_buffer283_gemm_nn9w66.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_sfc_c1_for_body4_gemm_nn9w_c1_enter_gemm_nn9w.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_sfc_exit_c1_for_body4_gemm_nn9w_c1A0Zxit_gemm_nn9w142.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_sfc_exit_c1_for_body4_gemm_nn9w_c1A0Z9w1011_data_fifo.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_sfc_exit_c1_for_body4_gemm_nn9w_c1A0Z9w_full_detector.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_sfc_logic_c1_for_body4_gemm_nn9w_c1_enA0Zter_gemm_nn9w103.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_store_memdep_259_gemm_nn9w133.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_store_memdep_264_gemm_nn9w138.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_store_memdep_gemm_nn9w126.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i1_memdep_phi260_pop27_gemm_nn9w106.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i1_memdep_phi265_pop28_gemm_nn9w108.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i1_memdep_phi266_pop12325_pop38_gemm_nn9w110.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i1_memdep_phi269_pop13326_pop39_gemm_nn9w114.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i1_memdep_phi272_pop14327_pop40_gemm_nn9w118.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i1_memdep_phi274_pop15328_pop41_gemm_nn9w122.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i1_memdep_phi_pop10323_pop36_gemm_nn9w129.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_memdep_phi260_push27_gemm_nn9w135.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_memdep_phi265_push28_gemm_nn9w140.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_memdep_phi266_pop12325_pusA0Zh38_gemm_nn9w112.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_memdep_phi269_pop13326_pusA0Zh39_gemm_nn9w116.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_memdep_phi272_pop14327_pusA0Zh40_gemm_nn9w120.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_memdep_phi274_pop15328_pusA0Zh41_gemm_nn9w124.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_memdep_phi_pop10323_push36_gemm_nn9w131.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/gemm_nn9W_B2_merge.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/bb_gemm_nn9W_B2_sr_1.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/bb_gemm_nn9W_B3.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/gemm_nn9W_B3_merge.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/bb_gemm_nn9W_B3_stall_region.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_sfc_c0_for_cond23_loopexit_loopexit_loA0Zter345_gemm_nn9w.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_sfc_exit_c0_for_cond23_loopexit_loA0Z348_gemm_nn9w147.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_sfc_exit_c0_for_cond23_loopexit_loA0Z9w1013_data_fifo.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_sfc_exit_c0_for_cond23_loopexit_loA0Z9w_full_detector.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_sfc_logic_c0_for_cond23_loopexit_loopeA0Z345_gemm_nn9w143.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_syncbuf_ldc_sync_buffer_gemm_nn9w145.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i1_memdep_phi277_pop16_gemm_nn9w148.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i1_memdep_phi277_pop16_gemm_nn9w_reg.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/gemm_nn9W_B3_branch.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/bb_gemm_nn9W_B3_sr_0.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/bb_gemm_nn9W_B4_sr_1.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/bb_gemm_nn9W_B5.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/gemm_nn9W_B5_branch.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/bb_gemm_nn9W_B5_stall_region.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/gemm_nn9W_B5_merge_reg.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_load_memcoalesce_a_load_0_gemm_nn9w284.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/readdata_reg_memcoalesce_A_load_0_gemm_nn9W2.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_sfc_c0_for_body35_gemm_nn9w_c0_enter407_gemm_nn9w.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_sfc_exit_c0_for_body35_gemm_nn9w_cA0Z428_gemm_nn9w283.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_sfc_exit_c0_for_body35_gemm_nn9w_cA0Z9w1019_data_fifo.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_sfc_exit_c0_for_body35_gemm_nn9w_cA0Z9w_full_detector.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_sfc_logic_c0_for_body35_gemm_nn9w_c0_eA0Z407_gemm_nn9w221.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pipeline_keep_going290_gemm_nn9w223.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i1_cmp367_rm312_pop48_gemm_nn9w240.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i1_cmp75_rm310_pop47_gemm_nn9w237.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i1_notexit300306_pop45_gemm_nn9w267.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i1_phi_decision139_xor_rm65333A0Zp55_gemm_nn9w275.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i1_pop44_gemm_nn9w263.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i1_pop56_gemm_nn9w279.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i32_div_rm314_pop49_gemm_nn9w243.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i32_k_371_pop43_gemm_nn9w225.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i32_mul36332_pop54_gemm_nn9w227.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i64_conv31_hf_tofpc331_pop53_gemm_nn9w259.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_p1h_arrayidx30330_pop52_gemm_nn9w271.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_cmp367_rm312_push48_gemm_nn9w251.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_cmp75_rm310_push47_gemm_nn9w253.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_notexit300306_push45_gemm_nn9w269.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_notexitcond291_gemm_nn9w257.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_phi_decision139_xor_rm6533A0Zh55_gemm_nn9w277.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_push44_gemm_nn9w265.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_push56_gemm_nn9w281.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i32_div_rm314_push49_gemm_nn9w249.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i32_k_371_push43_gemm_nn9w255.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i32_mul36332_push54_gemm_nn9w247.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i64_conv31_hf_tofpc331_push53_gemm_nn9w261.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_p1h_arrayidx30330_push52_gemm_nn9w273.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_syncbuf_a_sync_buffer_gemm_nn9w231.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_syncbuf_m_sync_buffer280_gemm_nn9w234.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_sfc_c1_for_body35_gemm_nn9w_c1_enter446_gemm_nn9w.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_sfc_exit_c1_for_body35_gemm_nn9w_cA0Z456_gemm_nn9w979.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_sfc_exit_c1_for_body35_gemm_nn9w_cA0Z9w1021_data_fifo.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_sfc_exit_c1_for_body35_gemm_nn9w_cA0Z9w_full_detector.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_sfc_logic_c1_for_body35_gemm_nn9w_c1_eA0Z446_gemm_nn9w286.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_load_memcoalesce_null_load_045_gemm_nn9w294.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_load_memcoalesce_null_load_051_gemm_nn9w299.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_load_memcoalesce_null_load_0_gemm_nn9w289.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i64_cn_272_rep_pop42_gemm_nn9w909.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i64_cn_272_rep_push42_gemm_nn9w977.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/gemm_nn9W_B5_merge.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/bb_gemm_nn9W_B5_sr_1.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/bb_gemm_nn9W_B6.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/gemm_nn9W_B6_merge.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/bb_gemm_nn9W_B6_stall_region.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_sfc_c0_for_end68_loopexit_loopexit_gemA0Zter463_gemm_nn9w.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_sfc_exit_c0_for_end68_loopexit_looA0Z468_gemm_nn9w988.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_sfc_exit_c0_for_end68_loopexit_looA0Z9w1023_data_fifo.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_sfc_exit_c0_for_end68_loopexit_looA0Z9w_full_detector.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_sfc_logic_c0_for_end68_loopexit_loopexA0Z463_gemm_nn9w980.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_store_memdep_276_gemm_nn9w989.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/gemm_nn9W_B6_branch.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/bb_gemm_nn9W_B6_sr_0.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/bb_gemm_nn9W_B7_sr_0.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/bb_gemm_nn9W_B8_sr_0.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/bb_gemm_nn9W_B0.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/bb_gemm_nn9W_B0_stall_region.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/gemm_nn9W_B0_merge_reg.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i1_throttle_pop_gemm_nn9w0.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i1_throttle_pop_gemm_nn9w_reg.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/gemm_nn9W_B0_branch.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/gemm_nn9W_B0_merge.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/bb_gemm_nn9W_B1.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/bb_gemm_nn9W_B1_stall_region.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/gemm_nn9W_B1_merge_reg.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_sfc_c0_for_cond2_preheader_gemm_nn9w_cA0Z_enter_gemm_nn9w.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_sfc_exit_c0_for_cond2_preheader_geA0Zexit_gemm_nn9w21.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_sfc_exit_c0_for_cond2_preheader_geA0Z9w1007_data_fifo.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_sfc_exit_c0_for_cond2_preheader_geA0Z9w_full_detector.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_sfc_logic_c0_for_cond2_preheader_gemm_A0Zenter_gemm_nn9w4.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pipeline_keep_going298_gemm_nn9w6.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i32_j_076_pop9_gemm_nn9w11.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_notexitcond299_gemm_nn9w19.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i32_j_076_push9_gemm_nn9w17.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_syncbuf_n_sync_buffer282_gemm_nn9w13.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_syncbuf_n_sync_buffer_gemm_nn9w8.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i1_memdep_phi261_pop11_gemm_nn9w24.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i1_memdep_phi261_pop11_gemm_nn9w_reg.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i1_memdep_phi266_pop12_gemm_nn9w26.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i1_memdep_phi266_pop12_gemm_nn9w_reg.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i1_memdep_phi269_pop13_gemm_nn9w28.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i1_memdep_phi269_pop13_gemm_nn9w_reg.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i1_memdep_phi272_pop14_gemm_nn9w30.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i1_memdep_phi272_pop14_gemm_nn9w_reg.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i1_memdep_phi274_pop15_gemm_nn9w32.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i1_memdep_phi274_pop15_gemm_nn9w_reg.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i1_memdep_phi_pop10_gemm_nn9w22.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i1_memdep_phi_pop10_gemm_nn9w_reg.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_syncbuf_lda_sync_buffer_gemm_nn9w2.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/gemm_nn9W_B1_branch.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/gemm_nn9W_B1_merge.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/bb_gemm_nn9W_B4.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/bb_gemm_nn9W_B4_stall_region.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/gemm_nn9W_B4_merge_reg.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_sfc_c0_for_body26_gemm_nn9w_c0_enter357_gemm_nn9w.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_sfc_exit_c0_for_body26_gemm_nn9w_cA0Z378_gemm_nn9w207.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_sfc_exit_c0_for_body26_gemm_nn9w_cA0Z9w1015_data_fifo.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_sfc_exit_c0_for_body26_gemm_nn9w_cA0Z9w_full_detector.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_sfc_logic_c0_for_body26_gemm_nn9w_c0_eA0Z357_gemm_nn9w154.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pipeline_keep_going294_gemm_nn9w156.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i1_cmp367_rm311_pop22_gemm_nn9w199.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i1_cmp75_rm309_pop21_gemm_nn9w172.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i1_memdep_phi277_pop16317_pop25_gemm_nn9w165.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i1_notexit300305_pop19_gemm_nn9w195.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i1_pop18_gemm_nn9w191.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i32_div1_rm307_pop20_gemm_nn9w167.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i32_div_rm313_pop23_gemm_nn9w203.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i32_i_274_pop17_gemm_nn9w158.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pop_i32_mul27315_pop24_gemm_nn9w160.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_cmp367_rm311_push22_gemm_nn9w201.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_cmp75_rm309_push21_gemm_nn9w183.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_memdep_phi277_pop16317_pusA0Zh25_gemm_nn9w179.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_notexit300305_push19_gemm_nn9w197.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_notexitcond295_gemm_nn9w189.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_push18_gemm_nn9w193.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i32_div1_rm307_push20_gemm_nn9w185.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i32_div_rm313_push23_gemm_nn9w205.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i32_i_274_push17_gemm_nn9w187.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i32_mul27315_push24_gemm_nn9w181.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_syncbuf_c_sync_buffer_gemm_nn9w162.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_syncbuf_m_sync_buffer279_gemm_nn9w175.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_syncbuf_m_sync_buffer_gemm_nn9w169.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_sfc_c1_for_body26_gemm_nn9w_c1_enter393_gemm_nn9w.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_sfc_exit_c1_for_body26_gemm_nn9w_cA0Z396_gemm_nn9w220.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_sfc_exit_c1_for_body26_gemm_nn9w_cA0Z9w1017_data_fifo.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_sfc_exit_c1_for_body26_gemm_nn9w_cA0Z9w_full_detector.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_sfc_logic_c1_for_body26_gemm_nn9w_c1_eA0Z393_gemm_nn9w212.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_load_unnamed_gemm_nn9w2_gemm_nn9w210.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/readdata_reg_unnamed_gemm_nn9W2_gemm_nn9W1.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_syncbuf_m_sync_buffer278_gemm_nn9w152.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_syncbuf_n_sync_buffer281_gemm_nn9w150.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/gemm_nn9W_B4_branch.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/gemm_nn9W_B4_merge.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/bb_gemm_nn9W_B7.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/bb_gemm_nn9W_B7_stall_region.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_memdep_phi261_push11_gemm_nn9w1001.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_memdep_phi261_push11_gemm_nn9w_reg.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_memdep_phi266_push12_gemm_nn9w999.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_memdep_phi266_push12_gemm_nn9w_reg.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_memdep_phi269_push13_gemm_nn9w997.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_memdep_phi269_push13_gemm_nn9w_reg.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_memdep_phi272_push14_gemm_nn9w995.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_memdep_phi272_push14_gemm_nn9w_reg.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_memdep_phi274_push15_gemm_nn9w993.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_memdep_phi274_push15_gemm_nn9w_reg.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_memdep_phi277_push16_gemm_nn9w991.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_memdep_phi277_push16_gemm_nn9w_reg.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_memdep_phi_push10_gemm_nn9w1003.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_memdep_phi_push10_gemm_nn9w_reg.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/gemm_nn9W_B7_branch.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/gemm_nn9W_B7_merge.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/bb_gemm_nn9W_B8.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/bb_gemm_nn9W_B8_stall_region.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_throttle_push_gemm_nn9w1005.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_push_i1_throttle_push_gemm_nn9w_reg.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/gemm_nn9W_B8_branch.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/gemm_nn9W_B8_merge.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pipeline_keep_going290_gemm_nn9w_sr.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pipeline_keep_going290_gemm_nn9w_valid_fifo.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pipeline_keep_going294_gemm_nn9w_sr.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pipeline_keep_going294_gemm_nn9w_valid_fifo.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pipeline_keep_going298_gemm_nn9w_sr.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pipeline_keep_going298_gemm_nn9w_valid_fifo.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pipeline_keep_going_gemm_nn9w_sr.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/i_acl_pipeline_keep_going_gemm_nn9w_valid_fifo.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/loop_limiter_gemm_nn9W0.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/loop_limiter_gemm_nn9W1.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/loop_limiter_gemm_nn9W2.vhd" />
+			<FILE name="kernel_hdl/gemm_nn9W/gemm_nn9W_function_cra_slave.vhd" />
+		</REQUIREMENTS>
+		<DATA>
+			<INTERFACE port="memcoalesce_A_load_0" cosim_name="" type="master" width="256" true_lsu_width="256" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="-1" buffer_location="" group_id="0" />
+			<INTERFACE port="memcoalesce_B_load_0" cosim_name="" type="master" width="256" true_lsu_width="256" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="1073741824" buffer_location="" group_id="0" />
+			<INTERFACE port="memdep_276" cosim_name="" type="master" width="256" true_lsu_width="16" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="write" criticality="4194303" buffer_location="" group_id="0" />
+			<INTERFACE port="unnamed_gemm_nn9W2" cosim_name="" type="master" width="256" true_lsu_width="16" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="1073741824" buffer_location="" group_id="0" />
+			<INTERFACE port="memcoalesce_null_load_0" cosim_name="" type="master" width="128" true_lsu_width="128" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="-1" buffer_location="" group_id="0" >
+				<CONNECTION port="3" bank="-1" />
+			</INTERFACE>
+			<INTERFACE port="memcoalesce_null_load_045" cosim_name="" type="master" width="128" true_lsu_width="128" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="-1" buffer_location="" group_id="0" >
+				<CONNECTION port="7" bank="-1" />
+			</INTERFACE>
+			<INTERFACE port="memcoalesce_null_load_051" cosim_name="" type="master" width="128" true_lsu_width="128" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="read" criticality="-1" buffer_location="" group_id="0" >
+				<CONNECTION port="11" bank="-1" />
+			</INTERFACE>
+			<INTERFACE port="memdep" cosim_name="" type="master" width="128" true_lsu_width="128" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="write" criticality="1073741824" buffer_location="" group_id="0" >
+				<CONNECTION port="0" bank="0" />
+				<CONNECTION port="4" bank="0" />
+				<CONNECTION port="8" bank="0" />
+			</INTERFACE>
+			<INTERFACE port="memdep_259" cosim_name="" type="master" width="128" true_lsu_width="128" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="write" criticality="1073741824" buffer_location="" group_id="0" >
+				<CONNECTION port="1" bank="0" />
+				<CONNECTION port="5" bank="0" />
+				<CONNECTION port="9" bank="0" />
+			</INTERFACE>
+			<INTERFACE port="memdep_264" cosim_name="" type="master" width="128" true_lsu_width="128" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="5" optype="write" criticality="1073741824" buffer_location="" group_id="0" >
+				<CONNECTION port="2" bank="0" />
+				<CONNECTION port="6" bank="0" />
+				<CONNECTION port="10" bank="0" />
+			</INTERFACE>
+		</DATA>
+		<KERNEL_ARGS>
+			<ARGUMENT name="M" cosim_name="" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" size="4" type_qualifier="ARG_TYPE_NONE" access_qualifier="ARG_ACCESS_NONE" type_name="int" >
+		</ARGUMENT>
+			<ARGUMENT name="N" cosim_name="" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" size="4" type_qualifier="ARG_TYPE_NONE" access_qualifier="ARG_ACCESS_NONE" type_name="int" >
+		</ARGUMENT>
+			<ARGUMENT name="K" cosim_name="" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" size="4" type_qualifier="ARG_TYPE_NONE" access_qualifier="ARG_ACCESS_NONE" type_name="int" >
+		</ARGUMENT>
+			<ARGUMENT name="ALPHA" cosim_name="" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" size="4" type_qualifier="ARG_TYPE_NONE" access_qualifier="ARG_ACCESS_NONE" type_name="float" >
+		</ARGUMENT>
+			<ARGUMENT name="A" cosim_name="" opencl_access_type="ACL_ARG_ADDR_GLOBAL" opencl_type_category="ACL_ARG_MEM_OBJ" size="8" type_qualifier="R" access_qualifier="ARG_ACCESS_NONE" type_name="half*" >
+		</ARGUMENT>
+			<ARGUMENT name="lda" cosim_name="" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" size="4" type_qualifier="ARG_TYPE_NONE" access_qualifier="ARG_ACCESS_NONE" type_name="int" >
+		</ARGUMENT>
+			<ARGUMENT name="B" cosim_name="" opencl_access_type="ACL_ARG_ADDR_GLOBAL" opencl_type_category="ACL_ARG_MEM_OBJ" size="8" type_qualifier="R" access_qualifier="ARG_ACCESS_NONE" type_name="half*" >
+		</ARGUMENT>
+			<ARGUMENT name="ldb" cosim_name="" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" size="4" type_qualifier="ARG_TYPE_NONE" access_qualifier="ARG_ACCESS_NONE" type_name="int" >
+		</ARGUMENT>
+			<ARGUMENT name="C" cosim_name="" opencl_access_type="ACL_ARG_ADDR_GLOBAL" opencl_type_category="ACL_ARG_MEM_OBJ" size="8" type_qualifier="R" access_qualifier="ARG_ACCESS_NONE" type_name="half*" >
+		</ARGUMENT>
+			<ARGUMENT name="ldc" cosim_name="" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" size="4" type_qualifier="ARG_TYPE_NONE" access_qualifier="ARG_ACCESS_NONE" type_name="int" >
+		</ARGUMENT>
+		</KERNEL_ARGS>
+		<PRINTF_FORMAT_STRINGS>
+		</PRINTF_FORMAT_STRINGS>
+		<PRINTF_INTERFACES>
+		</PRINTF_INTERFACES>
+	</KERNEL>
+	</KERNEL_BUNDLE>
+	<KERNEL_BUNDLE name="gemm_nnfW" compute_units="1">
+	<KERNEL name="gemm_nnfW" filename="kernel_hdl/gemm_nnfW/gemm_nnfW_function_wrapper.vhd" version="1" cosim_name="gemm_nnfW" enable_global_profiling="1" workgroup_invariant="0" has_global_atomics="0" num_vector_lanes="1" num_profiling_signals="0" arbitration_latency="6" kernel_side_mem_latency="10">
+		<RESOURCE_INFO>
+			<ID value="1" />
+			<LOCAL_MEM aspace="6" begin="0" next="32768" banks="1" width="512" static_demand="18432" num_groups="1" has_atomics="0" ports="2" write_ports="2" rdw_mode="0" repl_fac="1" ic_req_latency="0" ic_rrp_latency="0" ic_wrp_latency="0" req_pipe_interval="0" ret_fanout="0" num_ports_per_phys_mem="2" phys_mem_latency="3" maximum_depth="0" enable="0" ram_mode="0" preferred_width="320" use_mif_file="0">
+				<BANK id="0">
+					<PORT id="0" register="0" />
+					<PORT id="1" register="0" />
+				</BANK>
+			</LOCAL_MEM>
+			<AGGREGATE_STATIC_LOCAL_MEM_SIZE value="18432" />
+			<MAX_WORK_GROUP_SIZE value="1" />
+			<REQUIRED_WORK_GROUP_SIZE x="1" y="1" z="1" />
+		</RESOURCE_INFO>
+		<CONFIGURATION>
+			<INTERFACE port="clock_reset" type="clock"/>
+			<INTERFACE port="cra_irq" type="irq"/>
+			<INTERFACE port="cra" type="slave" cosim_name="" width="64" size="256" latency="0" />
+		</CONFIGURATION>
+		<REQUIREMENTS>
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/linux64/lib/dspba/Libraries/vhdl/base/dspba_library_package.vhd" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/linux64/lib/dspba/Libraries/vhdl/base/dspba_library.vhd" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_data_fifo.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_fifo.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_ll_fifo.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_ll_ram_fifo.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_valid_fifo_counter.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_dspba_valid_fifo_counter.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_staging_reg.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/hld_fifo.sv" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/hld_fifo_zero_width.sv" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_high_speed_fifo.sv" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_low_latency_fifo.sv" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_zero_latency_fifo.sv" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_fanout_pipeline.sv" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_std_synchronizer_nocut.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_tessellated_incr_decr_threshold.sv" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_tessellated_incr_lookahead.sv" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_reset_handler.sv" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_lfsr.sv" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_pop.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_dspba_buffer.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_pipeline.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_push.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_token_fifo_counter.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_full_detector.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/lsu_top.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/lsu_permute_address.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/lsu_pipelined.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/lsu_enabled.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/lsu_basic_coalescer.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/lsu_simple.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/lsu_streaming.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/lsu_burst_master.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/lsu_bursting_load_stores.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/lsu_non_aligned_write.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/lsu_read_cache.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/lsu_atomic.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/lsu_prefetch_block.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/lsu_wide_wrapper.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/lsu_streaming_prefetch.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_aligned_burst_coalesced_lsu.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_toggle_detect.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_debug_mem.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/lsu_burst_coalesced_pipelined_write.sv" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/lsu_burst_coalesced_pipelined_read.sv" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_fifo_stall_valid_lookahead.sv" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_fp_convert_from_half.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_optimized_clz_27.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_fp_custom_clz.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_fp_convert_to_half.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_loop_limiter.v" />
+			<FILE name="$::env(INTELFPGAOCLSDKROOT)/ip/acl_clock2x_holder.v" />
+			<FILE name="kernel_hdl/gemm_nnfW/gemm_nnfW_function_wrapper.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/gemm_nnfW_function.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/bb_gemm_nnfW_B1_sr_1.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/bb_gemm_nnfW_B2.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/gemm_nnfW_B2_branch.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/bb_gemm_nnfW_B2_stall_region.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/gemm_nnfW_B2_merge_reg.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_load_memcoalesce_b_load_0_gemm_nnfw78.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/readdata_reg_memcoalesce_B_load_0_gemm_nnfW0.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_sfc_c0_for_body4_gemm_nnfw_c0_enter57_gemm_nnfw.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_sfc_exit_c0_for_body4_gemm_nnfw_c0A0Zit62_gemm_nnfw77.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_sfc_exit_c0_for_body4_gemm_nnfw_c0A0Zfw1326_data_fifo.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_sfc_exit_c0_for_body4_gemm_nnfw_c0A0Zfw_full_detector.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_sfc_logic_c0_for_body4_gemm_nnfw_c0_enA0Zer57_gemm_nnfw27.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pipeline_keep_going_gemm_nnfw29.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pop_i1_forked46_pop22_gemm_nnfw65.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pop_i1_notexit2949_pop26_gemm_nnfw73.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pop_i1_pop25_gemm_nnfw69.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pop_i32_j_089_pop948_pop24_gemm_nnfw34.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pop_i32_k_182_pop21_gemm_nnfw36.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pop_i32_sdiv_add124_rm47_pop23_gemm_nnfw31.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_i1_forked46_push22_gemm_nnfw67.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_i1_notexit2949_push26_gemm_nnfw75.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_i1_notexitcond_gemm_nnfw63.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_i1_push25_gemm_nnfw71.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_i32_j_089_pop948_push24_gemm_nnfw57.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_i32_k_182_push21_gemm_nnfw61.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_i32_sdiv_add124_rm47_push23_gemm_nnfw59.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_syncbuf_b_sync_buffer_gemm_nnfw39.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_syncbuf_k_sync_buffer13_gemm_nnfw52.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_syncbuf_k_sync_buffer14_gemm_nnfw49.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_syncbuf_k_sync_buffer_gemm_nnfw45.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_syncbuf_n_sync_buffer12_gemm_nnfw42.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_sfc_c1_for_body4_gemm_nnfw_c1_enter_gemm_nnfw.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_sfc_exit_c1_for_body4_gemm_nnfw_c1A0Zexit_gemm_nnfw89.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_sfc_exit_c1_for_body4_gemm_nnfw_c1A0Zfw1328_data_fifo.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_sfc_exit_c1_for_body4_gemm_nnfw_c1A0Zfw_full_detector.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_sfc_logic_c1_for_body4_gemm_nnfw_c1_enter_gemm_nnfw80.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_store_memdep_gemm_nnfw85.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pop_i1_memdep_phi_pop1050_pop27_gemm_nnfw83.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_i1_memdep_phi_pop1050_push27_gemm_nnfw87.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/gemm_nnfW_B2_merge.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/bb_gemm_nnfW_B2_sr_1.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/bb_gemm_nnfW_B3.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/gemm_nnfW_B3_merge.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/bb_gemm_nnfW_B3_stall_region.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_sfc_c0_for_cond7_loopexit_loopexit_looA0Znter67_gemm_nnfw.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_sfc_exit_c0_for_cond7_loopexit_looA0Zit70_gemm_nnfw96.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_sfc_exit_c0_for_cond7_loopexit_looA0Zfw1330_data_fifo.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_sfc_exit_c0_for_cond7_loopexit_looA0Zfw_full_detector.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_sfc_logic_c0_for_cond7_loopexit_loopexA0Zer67_gemm_nnfw92.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_syncbuf_ldc_sync_buffer_gemm_nnfw94.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pop_i1_memdep_phi6_pop11_gemm_nnfw97.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pop_i1_memdep_phi6_pop11_gemm_nnfw_reg.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/gemm_nnfW_B3_branch.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/bb_gemm_nnfW_B3_sr_0.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/bb_gemm_nnfW_B4_sr_1.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/bb_gemm_nnfW_B5.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/gemm_nnfW_B5_branch.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/bb_gemm_nnfW_B5_stall_region.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/gemm_nnfW_B5_merge_reg.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_load_memcoalesce_a_load_0_gemm_nnfw234.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/readdata_reg_memcoalesce_A_load_0_gemm_nnfW2.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_sfc_c0_for_body19_gemm_nnfw_c0_enter123_gemm_nnfw.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_sfc_exit_c0_for_body19_gemm_nnfw_cA0Z144_gemm_nnfw233.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_sfc_exit_c0_for_body19_gemm_nnfw_cA0Zfw1336_data_fifo.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_sfc_exit_c0_for_body19_gemm_nnfw_cA0Zfw_full_detector.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_sfc_logic_c0_for_body19_gemm_nnfw_c0_eA0Z123_gemm_nnfw172.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pipeline_keep_going19_gemm_nnfw174.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pop_i1_cmp380_rm40_pop35_gemm_nnfw190.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pop_i1_cmp88_rm38_pop34_gemm_nnfw187.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pop_i1_notexit2934_pop32_gemm_nnfw217.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pop_i1_phi_decision156_xor_rm1655_A0Zp42_gemm_nnfw225.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pop_i1_pop31_gemm_nnfw213.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pop_i1_pop43_gemm_nnfw229.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pop_i32_k_384_pop30_gemm_nnfw176.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pop_i32_mul2054_pop41_gemm_nnfw178.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pop_i33_fpgaindvars_iv_pop28_gemm_nnfw193.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pop_i64_conv15_hf_tofpc53_pop40_gemm_nnfw209.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pop_p1h_arrayidx1452_pop39_gemm_nnfw221.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_i1_cmp380_rm40_push35_gemm_nnfw199.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_i1_cmp88_rm38_push34_gemm_nnfw201.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_i1_notexit2934_push32_gemm_nnfw219.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_i1_notexitcond20_gemm_nnfw207.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_i1_phi_decision156_xor_rm1655A0Zh42_gemm_nnfw227.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_i1_push31_gemm_nnfw215.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_i1_push43_gemm_nnfw231.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_i32_k_384_push30_gemm_nnfw203.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_i32_mul2054_push41_gemm_nnfw197.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_i33_fpgaindvars_iv_push28_gemm_nnfw205.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_i64_conv15_hf_tofpc53_push40_gemm_nnfw211.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_p1h_arrayidx1452_push39_gemm_nnfw223.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_syncbuf_a_sync_buffer_gemm_nnfw181.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_syncbuf_m_sync_buffer9_gemm_nnfw184.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_sfc_c1_for_body19_gemm_nnfw_c1_enter162_gemm_nnfw.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_sfc_exit_c1_for_body19_gemm_nnfw_cA0Z70_gemm_nnfw1306.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_sfc_exit_c1_for_body19_gemm_nnfw_cA0Zfw1338_data_fifo.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_sfc_exit_c1_for_body19_gemm_nnfw_cA0Zfw_full_detector.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_sfc_logic_c1_for_body19_gemm_nnfw_c1_eA0Z162_gemm_nnfw236.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_load_unnamed_gemm_nnfw9_gemm_nnfw239.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pop_i64_cn_285_rep_pop29_gemm_nnfw1236.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_i64_cn_285_rep_push29_gemm_nnfw1304.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/gemm_nnfW_B5_merge.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/bb_gemm_nnfW_B5_sr_1.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/bb_gemm_nnfW_B6.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/gemm_nnfW_B6_merge.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/bb_gemm_nnfW_B6_stall_region.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_sfc_c0_for_end32_loopexit_loopexit_gemA0Zter175_gemm_nnfw.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_sfc_exit_c0_for_end32_loopexit_looA0Z80_gemm_nnfw1315.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_sfc_exit_c0_for_end32_loopexit_looA0Zfw1340_data_fifo.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_sfc_exit_c0_for_end32_loopexit_looA0Zfw_full_detector.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_sfc_logic_c0_for_end32_loopexit_loopexA0Z75_gemm_nnfw1307.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_store_memdep_5_gemm_nnfw1316.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/gemm_nnfW_B6_branch.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/bb_gemm_nnfW_B6_sr_0.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/bb_gemm_nnfW_B7_sr_0.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/bb_gemm_nnfW_B8_sr_0.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/bb_gemm_nnfW_B0.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/bb_gemm_nnfW_B0_stall_region.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/gemm_nnfW_B0_merge_reg.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pop_i1_throttle_pop_gemm_nnfw0.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pop_i1_throttle_pop_gemm_nnfw_reg.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/gemm_nnfW_B0_branch.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/gemm_nnfW_B0_merge.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/bb_gemm_nnfW_B1.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/bb_gemm_nnfW_B1_stall_region.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/gemm_nnfW_B1_merge_reg.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_sfc_c0_for_cond2_preheader_gemm_nnfw_cA0Z_enter_gemm_nnfw.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_sfc_exit_c0_for_cond2_preheader_geA0Zexit_gemm_nnfw23.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_sfc_exit_c0_for_cond2_preheader_geA0Zfw1324_data_fifo.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_sfc_exit_c0_for_cond2_preheader_geA0Zfw_full_detector.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_sfc_logic_c0_for_cond2_preheader_gemm_A0Zenter_gemm_nnfw6.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pipeline_keep_going27_gemm_nnfw8.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pop_i32_j_089_pop9_gemm_nnfw13.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_i1_notexitcond28_gemm_nnfw21.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_i32_j_089_push9_gemm_nnfw19.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_syncbuf_n_sync_buffer11_gemm_nnfw15.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_syncbuf_n_sync_buffer_gemm_nnfw10.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pop_i1_memdep_phi_pop10_gemm_nnfw24.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pop_i1_memdep_phi_pop10_gemm_nnfw_reg.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_syncbuf_lda_sync_buffer15_gemm_nnfw2.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_syncbuf_lda_sync_buffer_gemm_nnfw4.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/gemm_nnfW_B1_branch.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/gemm_nnfW_B1_merge.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/bb_gemm_nnfW_B4.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/bb_gemm_nnfW_B4_stall_region.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/gemm_nnfW_B4_merge_reg.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_sfc_c0_for_body10_gemm_nnfw_c0_enter78_gemm_nnfw.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_sfc_exit_c0_for_body10_gemm_nnfw_cA0Zt97_gemm_nnfw158.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_sfc_exit_c0_for_body10_gemm_nnfw_cA0Zfw1332_data_fifo.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_sfc_exit_c0_for_body10_gemm_nnfw_cA0Zfw_full_detector.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_sfc_logic_c0_for_body10_gemm_nnfw_c0_eA0Zr78_gemm_nnfw105.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pipeline_keep_going23_gemm_nnfw107.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pop_i1_cmp380_rm39_pop17_gemm_nnfw150.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pop_i1_cmp88_rm37_pop16_gemm_nnfw123.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pop_i1_memdep_phi6_pop1143_pop20_gemm_nnfw116.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pop_i1_notexit2933_pop14_gemm_nnfw146.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pop_i1_pop13_gemm_nnfw142.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pop_i32_i_287_pop12_gemm_nnfw109.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pop_i32_mul1141_pop18_gemm_nnfw111.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pop_i32_sdiv_sh125_rm35_pop15_gemm_nnfw118.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pop_i33_pop19_gemm_nnfw154.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_i1_cmp380_rm39_push17_gemm_nnfw152.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_i1_cmp88_rm37_push16_gemm_nnfw134.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_i1_memdep_phi6_pop1143_push20_gemm_nnfw130.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_i1_notexit2933_push14_gemm_nnfw148.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_i1_notexitcond24_gemm_nnfw140.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_i1_push13_gemm_nnfw144.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_i32_i_287_push12_gemm_nnfw138.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_i32_mul1141_push18_gemm_nnfw132.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_i32_sdiv_sh125_rm35_push15_gemm_nnfw136.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_i33_push19_gemm_nnfw156.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_syncbuf_c_sync_buffer_gemm_nnfw113.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_syncbuf_m_sync_buffer8_gemm_nnfw126.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_syncbuf_m_sync_buffer_gemm_nnfw120.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_sfc_c1_for_body10_gemm_nnfw_c1_enter111_gemm_nnfw.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_sfc_exit_c1_for_body10_gemm_nnfw_cA0Z113_gemm_nnfw171.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_sfc_exit_c1_for_body10_gemm_nnfw_cA0Zfw1334_data_fifo.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_sfc_exit_c1_for_body10_gemm_nnfw_cA0Zfw_full_detector.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_sfc_logic_c1_for_body10_gemm_nnfw_c1_eA0Z111_gemm_nnfw163.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_load_unnamed_gemm_nnfw5_gemm_nnfw161.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/readdata_reg_unnamed_gemm_nnfW5_gemm_nnfW1.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_syncbuf_m_sync_buffer7_gemm_nnfw103.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_syncbuf_n_sync_buffer10_gemm_nnfw101.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/gemm_nnfW_B4_branch.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/gemm_nnfW_B4_merge.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/bb_gemm_nnfW_B7.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/bb_gemm_nnfW_B7_stall_region.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_i1_memdep_phi6_push11_gemm_nnfw1318.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_i1_memdep_phi6_push11_gemm_nnfw_reg.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_i1_memdep_phi_push10_gemm_nnfw1320.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_i1_memdep_phi_push10_gemm_nnfw_reg.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/gemm_nnfW_B7_branch.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/gemm_nnfW_B7_merge.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/bb_gemm_nnfW_B8.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/bb_gemm_nnfW_B8_stall_region.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_i1_throttle_push_gemm_nnfw1322.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_push_i1_throttle_push_gemm_nnfw_reg.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/gemm_nnfW_B8_branch.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/gemm_nnfW_B8_merge.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pipeline_keep_going19_gemm_nnfw_sr.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pipeline_keep_going19_gemm_nnfw_valid_fifo.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pipeline_keep_going23_gemm_nnfw_sr.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pipeline_keep_going23_gemm_nnfw_valid_fifo.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pipeline_keep_going27_gemm_nnfw_sr.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pipeline_keep_going27_gemm_nnfw_valid_fifo.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pipeline_keep_going_gemm_nnfw_sr.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/i_acl_pipeline_keep_going_gemm_nnfw_valid_fifo.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/loop_limiter_gemm_nnfW0.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/loop_limiter_gemm_nnfW1.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/loop_limiter_gemm_nnfW2.vhd" />
+			<FILE name="kernel_hdl/gemm_nnfW/gemm_nnfW_function_cra_slave.vhd" />
+		</REQUIREMENTS>
+		<DATA>
+			<INTERFACE port="memcoalesce_A_load_0" cosim_name="" type="master" width="256" true_lsu_width="256" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="-1" buffer_location="" group_id="0" />
+			<INTERFACE port="memcoalesce_B_load_0" cosim_name="" type="master" width="256" true_lsu_width="256" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="1073741824" buffer_location="" group_id="0" />
+			<INTERFACE port="memdep_5" cosim_name="" type="master" width="256" true_lsu_width="16" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="write" criticality="4194303" buffer_location="" group_id="0" />
+			<INTERFACE port="unnamed_gemm_nnfW5" cosim_name="" type="master" width="256" true_lsu_width="16" burstwidth="5" pipelined="true" addr_space="__global" aspace_id="1" optype="read" criticality="1073741824" buffer_location="" group_id="0" />
+			<INTERFACE port="memdep" cosim_name="" type="master" width="512" true_lsu_width="512" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="6" optype="write" criticality="1073741824" buffer_location="" group_id="0" >
+				<CONNECTION port="0" bank="-1" />
+			</INTERFACE>
+			<INTERFACE port="unnamed_gemm_nnfW9" cosim_name="" type="master" width="512" true_lsu_width="512" burstwidth="1" pipelined="true" addr_space="__local" aspace_id="6" optype="read" criticality="-1" buffer_location="" group_id="0" >
+				<CONNECTION port="1" bank="-1" />
+			</INTERFACE>
+		</DATA>
+		<KERNEL_ARGS>
+			<ARGUMENT name="M" cosim_name="" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" size="4" type_qualifier="ARG_TYPE_NONE" access_qualifier="ARG_ACCESS_NONE" type_name="int" >
+		</ARGUMENT>
+			<ARGUMENT name="N" cosim_name="" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" size="4" type_qualifier="ARG_TYPE_NONE" access_qualifier="ARG_ACCESS_NONE" type_name="int" >
+		</ARGUMENT>
+			<ARGUMENT name="K" cosim_name="" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" size="4" type_qualifier="ARG_TYPE_NONE" access_qualifier="ARG_ACCESS_NONE" type_name="int" >
+		</ARGUMENT>
+			<ARGUMENT name="ALPHA" cosim_name="" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" size="4" type_qualifier="ARG_TYPE_NONE" access_qualifier="ARG_ACCESS_NONE" type_name="float" >
+		</ARGUMENT>
+			<ARGUMENT name="A" cosim_name="" opencl_access_type="ACL_ARG_ADDR_GLOBAL" opencl_type_category="ACL_ARG_MEM_OBJ" size="8" type_qualifier="R" access_qualifier="ARG_ACCESS_NONE" type_name="half*" >
+		</ARGUMENT>
+			<ARGUMENT name="lda" cosim_name="" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" size="4" type_qualifier="ARG_TYPE_NONE" access_qualifier="ARG_ACCESS_NONE" type_name="int" >
+		</ARGUMENT>
+			<ARGUMENT name="B" cosim_name="" opencl_access_type="ACL_ARG_ADDR_GLOBAL" opencl_type_category="ACL_ARG_MEM_OBJ" size="8" type_qualifier="R" access_qualifier="ARG_ACCESS_NONE" type_name="half*" >
+		</ARGUMENT>
+			<ARGUMENT name="ldb" cosim_name="" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" size="4" type_qualifier="ARG_TYPE_NONE" access_qualifier="ARG_ACCESS_NONE" type_name="int" >
+		</ARGUMENT>
+			<ARGUMENT name="C" cosim_name="" opencl_access_type="ACL_ARG_ADDR_GLOBAL" opencl_type_category="ACL_ARG_MEM_OBJ" size="8" type_qualifier="R" access_qualifier="ARG_ACCESS_NONE" type_name="half*" >
+		</ARGUMENT>
+			<ARGUMENT name="ldc" cosim_name="" opencl_access_type="ACL_ARG_ADDR_NONE" opencl_type_category="ACL_ARG_BY_VALUE" size="4" type_qualifier="ARG_TYPE_NONE" access_qualifier="ARG_ACCESS_NONE" type_name="int" >
+		</ARGUMENT>
+		</KERNEL_ARGS>
+		<PRINTF_FORMAT_STRINGS>
+		</PRINTF_FORMAT_STRINGS>
+		<PRINTF_INTERFACES>
+		</PRINTF_INTERFACES>
+	</KERNEL>
+	</KERNEL_BUNDLE>
+	<STRUCT_TYPE_DEFS>
+	</STRUCT_TYPE_DEFS>
+</KERNEL_LIST>

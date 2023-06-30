@@ -1,0 +1,17 @@
+Partition Merge Status : Successful - Wed Jun 28 16:51:43 2023
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+Revision Name : top
+Top-level Entity Name : top
+Family : Cyclone V
+Logic utilization (in ALMs) : 32,070 / 32,070 ( 100 % )
+Total registers : 70291
+Total pins : 115 / 457 ( 25 % )
+Total virtual pins : 0
+Total block memory bits : 1,750,258 / 4,065,280 ( 43 % )
+Total DSP Blocks : 37 / 87 ( 43 % )
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 2 / 6 ( 33 % )
+Total DLLs : 1 / 4 ( 25 % )

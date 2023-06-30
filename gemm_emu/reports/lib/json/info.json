@@ -1,0 +1,8 @@
+{"name":"Info","rows":[
+{"name":"Project Name","data":["gemm_ntt_jikK"],"classes":["info-table"]},
+{"name":"Target Family, Device, Board","data":["Cyclone V, 5CSXFC6D6F31C8ES, de1soc:de1soc_sharedonly"]},
+{"name":"AOC Version","data":["18.1.0 Build 625"]},
+{"name":"Quartus Version","data":["18.1.0 Build 625"]},
+{"name":"Command","data":["aoc -fpc -fp-relaxed -v -report ocl/gemm_ntt_jikK.cl -o gemm_emu.aocx"]},
+{"name":"Reports Generated At", "data":["Wed Jun 28 16:29:48 2023"]}
+]}

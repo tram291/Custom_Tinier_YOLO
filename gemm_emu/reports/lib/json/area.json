@@ -1,0 +1,5082 @@
+{
+  "columns":
+  ["", "ALUTs", "FFs", "RAMs", "DSPs", "Details"]
+  , "debug_enabled":"true"
+  , "type":"module"
+  , "total_percent":
+  [119.046, 88.8302, 40.2283, 50.9728, 33.0357]
+  , "total":
+  [97333, 88158, 262, 37]
+  , "name":"Kernel System"
+  , "max_resources":
+  [109572, 219144, 514, 112]
+  , "children":
+  [
+    {
+      "name":"Board interface"
+      , "type":"resource"
+      , "data":
+      [2160, 1908, 20, 0]
+      , "details":
+      [
+        {
+          "type":"text"
+          , "text":"Platform interface logic."
+        }
+      ]
+    }
+    , {
+      "name":"Global interconnect"
+      , "type":"resource"
+      , "data":
+      [792, 3014, 10, 0]
+      , "details":
+      [
+        {
+          "type":"text"
+          , "text":"Global interconnect for 6 global loads and 2 global stores. Reduce number of global loads and stores to simplify global interconnect."
+        }
+        , {
+          "type":"text"
+          , "text":"See %L for more information"
+          , "links":
+          [
+            {
+              "guide":"Best Practices Guide : Global Memory Interconnect"
+              , "link":"https://www.altera.com/documentation/mwh1391807516407.html#hnj1476724450050"
+            }
+          ]
+        }
+      ]
+    }
+    , {
+      "name":"gemm_nn9W"
+      , "compute_units":1
+      , "type":"function"
+      , "total_percent":
+      [49.965, 36.7941, 17.2585, 28.2101, 13.3929]
+      , "total_kernel_resources":
+      [40316, 37821, 145, 15]
+      , "details":
+      [
+        {
+          "type":"text"
+          , "text":"Number of compute units: 1"
+        }
+      ]
+      , "children":
+      [
+        {
+          "name":"Function overhead"
+          , "type":"resource"
+          , "data":
+          [1574, 1505, 0, 0]
+          , "details":
+          [
+            {
+              "type":"text"
+              , "text":"Kernel dispatch logic."
+            }
+          ]
+        }
+        , {
+          "name":"Coalesced Private Variables: \n - 'i' (gemm_ntt_jikK.cl:15)\n - 'k' (gemm_ntt_jikK.cl:15)"
+          , "type":"resource"
+          , "data":
+          [24, 101, 0, 0]
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                , "line":15
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"text"
+              , "text":"Type: Register"
+            }
+            , {
+              "type":"text"
+              , "text":"1 register of width 32 and depth 1"
+            }
+          ]
+        }
+        , {
+          "name":"Private Variable: \n - 'i' (gemm_ntt_jikK.cl:15)"
+          , "type":"resource"
+          , "data":
+          [7, 36, 0, 0]
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                , "line":15
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"text"
+              , "text":"Type: Register"
+            }
+            , {
+              "type":"text"
+              , "text":"1 register of width 32 and depth 1"
+            }
+          ]
+        }
+        , {
+          "name":"Private Variable: \n - 'j' (gemm_ntt_jikK.cl:15)"
+          , "type":"resource"
+          , "data":
+          [7, 36, 0, 0]
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                , "line":15
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"text"
+              , "text":"Type: Register"
+            }
+            , {
+              "type":"text"
+              , "text":"1 register of width 32 and depth 1"
+            }
+          ]
+        }
+        , {
+          "name":"Private Variable: \n - 'k' (gemm_ntt_jikK.cl:15)"
+          , "type":"resource"
+          , "data":
+          [19, 138, 0, 0]
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                , "line":15
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"text"
+              , "text":"Type: Register"
+            }
+            , {
+              "type":"text"
+              , "text":"1 register of width 32 and depth 4"
+            }
+          ]
+        }
+        , {
+          "name":"gemm_ntt_jikK.cl:18 (B_BUF)"
+          , "type":"resource"
+          , "data":
+          [129, 2048, 78, 0]
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                , "line":18
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Private memory":"Good but replicated"
+              , "Requested size":"24576 bytes"
+              , "Implemented size":"98304 bytes"
+              , "Number of banks":"1"
+              , "Bank width":"128 bits"
+              , "Bank depth":"2048 words"
+              , "Total replication":"3"
+              , "Clock":"Running memory at 2x clock to support more concurrent ports"
+              , "Additional information":
+              [
+                {
+                  "type":"text"
+                  , "text":"Requested size 24576 bytes, implemented size 98304 bytes, replicated 3 times total, stall-free, 3 reads and 3 writes. "
+                }
+                , {
+                  "type":"text"
+                  , "text":"Replicated 3 times to efficiently support multiple accesses. To reduce this replication factor, reduce number of read and write accesses."
+                }
+              ]
+              , "Reference":
+              [
+                {
+                  "type":"text"
+                  , "text":"See %L for more information."
+                  , "links":
+                  [
+                    {
+                      "guide":"Best Practices Guide : Local Memory"
+                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#chn1469549457114"
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"text"
+              , "text":"Private memory implemented in on-chip block RAM."
+            }
+          ]
+        }
+        , {
+          "name":"gemm_nn9W.B0"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"Feedback"
+              , "type":"resource"
+              , "data":
+              [5, 2, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Resources for loop-carried dependencies. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce number and size of loop-carried variables"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [5, 2, 0, 0]
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"gemm_nn9W.B1"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"Feedback"
+              , "type":"resource"
+              , "data":
+              [45, 55, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Resources for loop-carried dependencies. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce number and size of loop-carried variables"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"gemm_ntt_jikK.cl:19"
+                  , "type":"resource"
+                  , "data":
+                  [15, 43, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":19
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:21"
+                  , "type":"resource"
+                  , "data":
+                  [5, 2, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":21
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:22"
+                  , "type":"resource"
+                  , "data":
+                  [5, 2, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":22
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:23"
+                  , "type":"resource"
+                  , "data":
+                  [5, 2, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":23
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:31"
+                  , "type":"resource"
+                  , "data":
+                  [5, 2, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":31
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:32"
+                  , "type":"resource"
+                  , "data":
+                  [5, 2, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":32
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:33"
+                  , "type":"resource"
+                  , "data":
+                  [5, 2, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":33
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+            , {
+              "name":"Cluster logic"
+              , "type":"resource"
+              , "data":
+              [103, 50, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall. This area cannot be affected directly."
+                }
+              ]
+            }
+            , {
+              "name":"Computation"
+              , "type":"resource"
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [35, 1, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":""
+                        , "line":0
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [35, 1, 0, 0]
+                    }
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:19"
+                  , "type":"resource"
+                  , "data":
+                  [44, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":19
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [33, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [11, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"gemm_nn9W.B2"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"State"
+              , "type":"resource"
+              , "data":
+              [896, 1208, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Resources for live values and control logic. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce size of local variables"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce scope of local variables, localizing them as much as possible"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce number of nested loops"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [896, 1208, 0, 0]
+                }
+              ]
+            }
+            , {
+              "name":"Feedback"
+              , "type":"resource"
+              , "data":
+              [170, 283, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Resources for loop-carried dependencies. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce number and size of loop-carried variables"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [8, 36, 0, 0]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:19"
+                  , "type":"resource"
+                  , "data":
+                  [32, 51, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":19
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:20"
+                  , "type":"resource"
+                  , "data":
+                  [52.3333, 129.667, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":20
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:21"
+                  , "type":"resource"
+                  , "data":
+                  [8, 5, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":21
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:22"
+                  , "type":"resource"
+                  , "data":
+                  [17, 13, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":22
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:23"
+                  , "type":"resource"
+                  , "data":
+                  [18, 16, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":23
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:24"
+                  , "type":"resource"
+                  , "data":
+                  [7.66667, 8.33333, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":24
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:31"
+                  , "type":"resource"
+                  , "data":
+                  [9, 8, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":31
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:32"
+                  , "type":"resource"
+                  , "data":
+                  [9, 8, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":32
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:33"
+                  , "type":"resource"
+                  , "data":
+                  [9, 8, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":33
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+            , {
+              "name":"Cluster logic"
+              , "type":"resource"
+              , "data":
+              [370, 143, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall. This area cannot be affected directly."
+                }
+              ]
+            }
+            , {
+              "name":"Computation"
+              , "type":"resource"
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [5, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":""
+                        , "line":0
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"And"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [5, 0, 0, 0]
+                    }
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:16"
+                  , "type":"resource"
+                  , "data":
+                  [245, 51, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":16
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Divide"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [245, 51, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:17"
+                  , "type":"resource"
+                  , "data":
+                  [245, 53, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":17
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Divide"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [245, 53, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:19"
+                  , "type":"resource"
+                  , "data":
+                  [35, 1, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":19
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [35, 1, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:20"
+                  , "type":"resource"
+                  , "data":
+                  [107.667, 2.66667, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":20
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [33, 0, 0, 0]
+                    }
+                    , {
+                      "name":"And"
+                      , "type":"resource"
+                      , "count":8
+                      , "data":
+                      [2, 0.666667, 0, 0]
+                    }
+                    , {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":6
+                      , "data":
+                      [72.6667, 2, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:21"
+                  , "type":"resource"
+                  , "data":
+                  [960.667, 1148.33, 5.33333, 2]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":21
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"'__acl__convert_HalfToFP' Function Call"
+                      , "type":"resource"
+                      , "count":3
+                      , "data":
+                      [42, 60, 0, 0]
+                    }
+                    , {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [66, 0, 0, 0]
+                    }
+                    , {
+                      "name":"32-bit Integer Multiply"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [66, 0, 0, 2]
+                    }
+                    , {
+                      "name":"64-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [65, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [687.667, 1064.33, 5.33333, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Load uses a Burst-coalesced non-aligned LSU.  Use Dynamic Profiler to determine performance impact of this LSU."
+                        }
+                      ]
+                    }
+                    , {
+                      "name":"Store"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [34, 24, 0, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Store uses a Local-pipelined never-stall LSU"
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"Stall-free write to memory declared on gemm_ntt_jikK.cl:18."
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"See %L for more information"
+                          , "links":
+                          [
+                            {
+                              "guide":"Best Practices Guide : Load-Store Units"
+                              , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:22"
+                  , "type":"resource"
+                  , "data":
+                  [797.417, 1149.08, 5.33333, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":22
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"'__acl__convert_HalfToFP' Function Call"
+                      , "type":"resource"
+                      , "count":3
+                      , "data":
+                      [42, 60, 0, 0]
+                    }
+                    , {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [33, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [687.667, 1064.33, 5.33333, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Load uses a Burst-coalesced non-aligned LSU.  Use Dynamic Profiler to determine performance impact of this LSU."
+                        }
+                      ]
+                    }
+                    , {
+                      "name":"Or"
+                      , "type":"resource"
+                      , "count":6
+                      , "data":
+                      [0.75, 0.75, 0, 0]
+                    }
+                    , {
+                      "name":"Store"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [34, 24, 0, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Store uses a Local-pipelined never-stall LSU"
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"Stall-free write to memory declared on gemm_ntt_jikK.cl:18."
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"See %L for more information"
+                          , "links":
+                          [
+                            {
+                              "guide":"Best Practices Guide : Load-Store Units"
+                              , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:23"
+                  , "type":"resource"
+                  , "data":
+                  [764.417, 1149.08, 5.33333, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":23
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"'__acl__convert_HalfToFP' Function Call"
+                      , "type":"resource"
+                      , "count":3
+                      , "data":
+                      [42, 60, 0, 0]
+                    }
+                    , {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [687.667, 1064.33, 5.33333, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Load uses a Burst-coalesced non-aligned LSU.  Use Dynamic Profiler to determine performance impact of this LSU."
+                        }
+                      ]
+                    }
+                    , {
+                      "name":"Or"
+                      , "type":"resource"
+                      , "count":5
+                      , "data":
+                      [0.75, 0.75, 0, 0]
+                    }
+                    , {
+                      "name":"Store"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [34, 24, 0, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Store uses a Local-pipelined never-stall LSU"
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"Stall-free write to memory declared on gemm_ntt_jikK.cl:18."
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"See %L for more information"
+                          , "links":
+                          [
+                            {
+                              "guide":"Best Practices Guide : Load-Store Units"
+                              , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:24"
+                  , "type":"resource"
+                  , "data":
+                  [2.33333, 0.333333, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":24
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"And"
+                      , "type":"resource"
+                      , "count":3
+                      , "data":
+                      [1, 0.333333, 0, 0]
+                    }
+                    , {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [1.33333, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:31"
+                  , "type":"resource"
+                  , "data":
+                  [0.25, 0.25, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":31
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Or"
+                      , "type":"resource"
+                      , "count":6
+                      , "data":
+                      [0.25, 0.25, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:32"
+                  , "type":"resource"
+                  , "data":
+                  [0.25, 0.25, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":32
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Or"
+                      , "type":"resource"
+                      , "count":3
+                      , "data":
+                      [0.25, 0.25, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"gemm_nn9W.B3"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"State"
+              , "type":"resource"
+              , "data":
+              [51, 101, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Resources for live values and control logic. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce size of local variables"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce scope of local variables, localizing them as much as possible"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce number of nested loops"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [51, 101, 0, 0]
+                }
+              ]
+            }
+            , {
+              "name":"Feedback"
+              , "type":"resource"
+              , "data":
+              [5, 2, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Resources for loop-carried dependencies. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce number and size of loop-carried variables"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"gemm_ntt_jikK.cl:36"
+                  , "type":"resource"
+                  , "data":
+                  [5, 2, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":36
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+            , {
+              "name":"Cluster logic"
+              , "type":"resource"
+              , "data":
+              [84, 44, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall. This area cannot be affected directly."
+                }
+              ]
+            }
+            , {
+              "name":"Computation"
+              , "type":"resource"
+              , "children":
+              [
+                {
+                  "name":"gemm_ntt_jikK.cl:27"
+                  , "type":"resource"
+                  , "data":
+                  [66, 0, 0, 2]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":27
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Multiply"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [66, 0, 0, 2]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"gemm_nn9W.B4"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"State"
+              , "type":"resource"
+              , "data":
+              [286, 478, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Resources for live values and control logic. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce size of local variables"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce scope of local variables, localizing them as much as possible"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce number of nested loops"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [286, 478, 0, 0]
+                }
+              ]
+            }
+            , {
+              "name":"Feedback"
+              , "type":"resource"
+              , "data":
+              [118, 321, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Resources for loop-carried dependencies. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce number and size of loop-carried variables"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"gemm_ntt_jikK.cl:16"
+                  , "type":"resource"
+                  , "data":
+                  [8, 36, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":16
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:17"
+                  , "type":"resource"
+                  , "data":
+                  [25, 101, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":17
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:19"
+                  , "type":"resource"
+                  , "data":
+                  [27, 24, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":19
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:20"
+                  , "type":"resource"
+                  , "data":
+                  [9, 8, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":20
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:25"
+                  , "type":"resource"
+                  , "data":
+                  [12.6667, 40.6667, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":25
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:27"
+                  , "type":"resource"
+                  , "data":
+                  [25, 101, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":27
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:36"
+                  , "type":"resource"
+                  , "data":
+                  [9, 8, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":36
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:37"
+                  , "type":"resource"
+                  , "data":
+                  [2.33333, 2.33333, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":37
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+            , {
+              "name":"Cluster logic"
+              , "type":"resource"
+              , "data":
+              [468, 168, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall. This area cannot be affected directly."
+                }
+              ]
+            }
+            , {
+              "name":"Computation"
+              , "type":"resource"
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [72, 4, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":""
+                        , "line":0
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [70, 2, 0, 0]
+                    }
+                    , {
+                      "name":"Or"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [1, 1, 0, 0]
+                    }
+                    , {
+                      "name":"Xor"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [1, 1, 0, 0]
+                    }
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:25"
+                  , "type":"resource"
+                  , "data":
+                  [75.3333, 1, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":25
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [33, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":3
+                      , "data":
+                      [42.3333, 1, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:27"
+                  , "type":"resource"
+                  , "data":
+                  [688, 2055, 13, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":27
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"'__acl__convert_HalfToFP' Function Call"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [14, 20, 0, 0]
+                    }
+                    , {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [33, 0, 0, 0]
+                    }
+                    , {
+                      "name":"And"
+                      , "type":"resource"
+                      , "count":3
+                      , "data":
+                      [11, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [11, 1, 0, 0]
+                    }
+                    , {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [494, 2034, 13, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Load uses a Burst-coalesced LSU"
+                        }
+                      ]
+                    }
+                    , {
+                      "name":"Or"
+                      , "type":"resource"
+                      , "count":3
+                      , "data":
+                      [42, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [83, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:28"
+                  , "type":"resource"
+                  , "data":
+                  [66, 0, 0, 2]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":28
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Multiply"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [66, 0, 0, 2]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:37"
+                  , "type":"resource"
+                  , "data":
+                  [3.66667, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":37
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [3.66667, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"gemm_nn9W.B5"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"State"
+              , "type":"resource"
+              , "data":
+              [9356, 17218, 2, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Resources for live values and control logic. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce size of local variables"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce scope of local variables, localizing them as much as possible"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce number of nested loops"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [9356, 17218, 2, 0]
+                }
+              ]
+            }
+            , {
+              "name":"Feedback"
+              , "type":"resource"
+              , "data":
+              [266, 1426, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Resources for loop-carried dependencies. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce number and size of loop-carried variables"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [20, 14, 0, 0]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:16"
+                  , "type":"resource"
+                  , "data":
+                  [20, 138, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":16
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:19"
+                  , "type":"resource"
+                  , "data":
+                  [60, 42, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":19
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:20"
+                  , "type":"resource"
+                  , "data":
+                  [20, 14, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":20
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:25"
+                  , "type":"resource"
+                  , "data":
+                  [8, 7.33333, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":25
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:27"
+                  , "type":"resource"
+                  , "data":
+                  [99, 869.5, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":27
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:28"
+                  , "type":"resource"
+                  , "data":
+                  [20, 138, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":28
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:34"
+                  , "type":"resource"
+                  , "data":
+                  [15, 199.5, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":34
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:37"
+                  , "type":"resource"
+                  , "data":
+                  [4, 3.66667, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":37
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+            , {
+              "name":"Cluster logic"
+              , "type":"resource"
+              , "data":
+              [520, 233, 3, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall. This area cannot be affected directly."
+                }
+              ]
+            }
+            , {
+              "name":"Computation"
+              , "type":"resource"
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [4301, 66, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":""
+                        , "line":0
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"'Count leading zeros' Function Call"
+                      , "type":"resource"
+                      , "count":6
+                      , "data":
+                      [102, 0, 0, 0]
+                    }
+                    , {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":15
+                      , "data":
+                      [495, 0, 0, 0]
+                    }
+                    , {
+                      "name":"32-bit Integer Subtract"
+                      , "type":"resource"
+                      , "count":12
+                      , "data":
+                      [396, 0, 0, 0]
+                    }
+                    , {
+                      "name":"And"
+                      , "type":"resource"
+                      , "count":82
+                      , "data":
+                      [574, 2, 0, 0]
+                    }
+                    , {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":36
+                      , "data":
+                      [540, 28, 0, 0]
+                    }
+                    , {
+                      "name":"Or"
+                      , "type":"resource"
+                      , "count":24
+                      , "data":
+                      [4, 4, 0, 0]
+                    }
+                    , {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":87
+                      , "data":
+                      [1992, 32, 0, 0]
+                    }
+                    , {
+                      "name":"Xor"
+                      , "type":"resource"
+                      , "count":31
+                      , "data":
+                      [198, 0, 0, 0]
+                    }
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:25"
+                  , "type":"resource"
+                  , "data":
+                  [35, 1, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":25
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [35, 1, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:27"
+                  , "type":"resource"
+                  , "data":
+                  [473.75, 1.25, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":27
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":4
+                      , "data":
+                      [57.75, 0, 0, 0]
+                    }
+                    , {
+                      "name":"32-bit Integer Subtract"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [16.5, 0, 0, 0]
+                    }
+                    , {
+                      "name":"64-bit Integer Add"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [32.5, 0, 0, 0]
+                    }
+                    , {
+                      "name":"And"
+                      , "type":"resource"
+                      , "count":61
+                      , "data":
+                      [94, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":25
+                      , "data":
+                      [109.5, 1.25, 0, 0]
+                    }
+                    , {
+                      "name":"Or"
+                      , "type":"resource"
+                      , "count":19
+                      , "data":
+                      [36.25, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":24
+                      , "data":
+                      [86.75, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Xor"
+                      , "type":"resource"
+                      , "count":13
+                      , "data":
+                      [40.5, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:28"
+                  , "type":"resource"
+                  , "data":
+                  [827.667, 1124.33, 5.33333, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":28
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"'__acl__convert_HalfToFP' Function Call"
+                      , "type":"resource"
+                      , "count":3
+                      , "data":
+                      [42, 60, 0, 0]
+                    }
+                    , {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [33, 0, 0, 0]
+                    }
+                    , {
+                      "name":"64-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [65, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [687.667, 1064.33, 5.33333, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Load uses a Burst-coalesced non-aligned LSU.  Use Dynamic Profiler to determine performance impact of this LSU."
+                        }
+                      ]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:29"
+                  , "type":"resource"
+                  , "data":
+                  [729.667, 1124.33, 5.33333, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":29
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"'__acl__convert_HalfToFP' Function Call"
+                      , "type":"resource"
+                      , "count":3
+                      , "data":
+                      [42, 60, 0, 0]
+                    }
+                    , {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [687.667, 1064.33, 5.33333, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Load uses a Burst-coalesced non-aligned LSU.  Use Dynamic Profiler to determine performance impact of this LSU."
+                        }
+                      ]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:30"
+                  , "type":"resource"
+                  , "data":
+                  [729.667, 1124.33, 5.33333, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":30
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"'__acl__convert_HalfToFP' Function Call"
+                      , "type":"resource"
+                      , "count":3
+                      , "data":
+                      [42, 60, 0, 0]
+                    }
+                    , {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [687.667, 1064.33, 5.33333, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Load uses a Burst-coalesced non-aligned LSU.  Use Dynamic Profiler to determine performance impact of this LSU."
+                        }
+                      ]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:31"
+                  , "type":"resource"
+                  , "data":
+                  [96, 137, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":31
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"And"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [11, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [11, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [74, 137, 0, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Load uses a Local-pipelined never-stall LSU"
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"Stall-free read from memory declared on gemm_ntt_jikK.cl:18."
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"See %L for more information"
+                          , "links":
+                          [
+                            {
+                              "guide":"Best Practices Guide : Load-Store Units"
+                              , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:32"
+                  , "type":"resource"
+                  , "data":
+                  [129, 137, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":32
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [33, 0, 0, 0]
+                    }
+                    , {
+                      "name":"And"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [11, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [11, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [74, 137, 0, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Load uses a Local-pipelined never-stall LSU"
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"Stall-free read from memory declared on gemm_ntt_jikK.cl:18."
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"See %L for more information"
+                          , "links":
+                          [
+                            {
+                              "guide":"Best Practices Guide : Load-Store Units"
+                              , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:33"
+                  , "type":"resource"
+                  , "data":
+                  [129, 137, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":33
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [33, 0, 0, 0]
+                    }
+                    , {
+                      "name":"And"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [11, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [11, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [74, 137, 0, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Load uses a Local-pipelined never-stall LSU"
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"Stall-free read from memory declared on gemm_ntt_jikK.cl:18."
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"See %L for more information"
+                          , "links":
+                          [
+                            {
+                              "guide":"Best Practices Guide : Load-Store Units"
+                              , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:34"
+                  , "type":"resource"
+                  , "data":
+                  [13325.3, 295.75, 0, 9]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":34
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":56
+                      , "data":
+                      [1262.25, 0, 0, 0]
+                    }
+                    , {
+                      "name":"32-bit Integer Subtract"
+                      , "type":"resource"
+                      , "count":20
+                      , "data":
+                      [280.5, 0, 0, 0]
+                    }
+                    , {
+                      "name":"64-bit Integer Add"
+                      , "type":"resource"
+                      , "count":22
+                      , "data":
+                      [747.5, 0, 0, 0]
+                    }
+                    , {
+                      "name":"64-bit Integer Multiply"
+                      , "type":"resource"
+                      , "count":9
+                      , "data":
+                      [0, 0, 0, 9]
+                    }
+                    , {
+                      "name":"And"
+                      , "type":"resource"
+                      , "count":777
+                      , "data":
+                      [2051, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":311
+                      , "data":
+                      [2259.5, 114.75, 0, 0]
+                    }
+                    , {
+                      "name":"Or"
+                      , "type":"resource"
+                      , "count":305
+                      , "data":
+                      [1967.75, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":306
+                      , "data":
+                      [3537.25, 176, 0, 0]
+                    }
+                    , {
+                      "name":"Xor"
+                      , "type":"resource"
+                      , "count":165
+                      , "data":
+                      [1219.5, 5, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"gemm_nn9W.B6"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"State"
+              , "type":"resource"
+              , "data":
+              [36, 71, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Resources for live values and control logic. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce size of local variables"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce scope of local variables, localizing them as much as possible"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce number of nested loops"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [36, 71, 0, 0]
+                }
+              ]
+            }
+            , {
+              "name":"Cluster logic"
+              , "type":"resource"
+              , "data":
+              [44, 28, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall. This area cannot be affected directly."
+                }
+              ]
+            }
+            , {
+              "name":"Computation"
+              , "type":"resource"
+              , "children":
+              [
+                {
+                  "name":"gemm_ntt_jikK.cl:27"
+                  , "type":"resource"
+                  , "data":
+                  [153, 1, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":27
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"And"
+                      , "type":"resource"
+                      , "count":4
+                      , "data":
+                      [54, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [21, 1, 0, 0]
+                    }
+                    , {
+                      "name":"Or"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [11, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [67, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:36"
+                  , "type":"resource"
+                  , "data":
+                  [413, 2220, 17, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":36
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"'__acl__convert_FPtoHalf' Function Call"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [14, 20, 0, 0]
+                    }
+                    , {
+                      "name":"Store"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [399, 2200, 17, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Store uses a Burst-coalesced write-ack LSU"
+                        }
+                      ]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"gemm_nn9W.B7"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"Feedback"
+              , "type":"resource"
+              , "data":
+              [175, 133, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Resources for loop-carried dependencies. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce number and size of loop-carried variables"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"gemm_ntt_jikK.cl:21"
+                  , "type":"resource"
+                  , "data":
+                  [25, 19, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":21
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:22"
+                  , "type":"resource"
+                  , "data":
+                  [25, 19, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":22
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:23"
+                  , "type":"resource"
+                  , "data":
+                  [25, 19, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":23
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:31"
+                  , "type":"resource"
+                  , "data":
+                  [25, 19, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":31
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:32"
+                  , "type":"resource"
+                  , "data":
+                  [25, 19, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":32
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:33"
+                  , "type":"resource"
+                  , "data":
+                  [25, 19, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":33
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:36"
+                  , "type":"resource"
+                  , "data":
+                  [25, 19, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":36
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"gemm_nn9W.B8"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"Feedback"
+              , "type":"resource"
+              , "data":
+              [3, 8, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Resources for loop-carried dependencies. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce number and size of loop-carried variables"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [3, 8, 0, 0]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+    , {
+      "name":"gemm_nnfW"
+      , "compute_units":1
+      , "type":"function"
+      , "total_percent":
+      [64.3421, 49.342, 20.7238, 16.9261, 19.6429]
+      , "total_kernel_resources":
+      [54065, 45415, 87, 22]
+      , "details":
+      [
+        {
+          "type":"text"
+          , "text":"Number of compute units: 1"
+        }
+      ]
+      , "children":
+      [
+        {
+          "name":"Function overhead"
+          , "type":"resource"
+          , "data":
+          [1574, 1505, 0, 0]
+          , "details":
+          [
+            {
+              "type":"text"
+              , "text":"Kernel dispatch logic."
+            }
+          ]
+        }
+        , {
+          "name":"Coalesced Private Variables: \n - 'i' (gemm_ntt_jikK.cl:47)\n - 'k' (gemm_ntt_jikK.cl:47)"
+          , "type":"resource"
+          , "data":
+          [7, 36, 0, 0]
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                , "line":47
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"text"
+              , "text":"Type: Register"
+            }
+            , {
+              "type":"text"
+              , "text":"1 register of width 32 and depth 1"
+            }
+          ]
+        }
+        , {
+          "name":"Private Variable: \n - 'i' (gemm_ntt_jikK.cl:47)"
+          , "type":"resource"
+          , "data":
+          [7, 36, 0, 0]
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                , "line":47
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"text"
+              , "text":"Type: Register"
+            }
+            , {
+              "type":"text"
+              , "text":"1 register of width 32 and depth 1"
+            }
+          ]
+        }
+        , {
+          "name":"Private Variable: \n - 'j' (gemm_ntt_jikK.cl:47)"
+          , "type":"resource"
+          , "data":
+          [7, 36, 0, 0]
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                , "line":47
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"text"
+              , "text":"Type: Register"
+            }
+            , {
+              "type":"text"
+              , "text":"1 register of width 32 and depth 1"
+            }
+          ]
+        }
+        , {
+          "name":"Private Variable: \n - 'k' (gemm_ntt_jikK.cl:47)"
+          , "type":"resource"
+          , "data":
+          [19, 138, 0, 0]
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                , "line":47
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"text"
+              , "text":"Type: Register"
+            }
+            , {
+              "type":"text"
+              , "text":"1 register of width 32 and depth 4 (depth was increased by a factor of 4 due to a loop initiation interval of 4.)"
+            }
+          ]
+        }
+        , {
+          "name":"gemm_ntt_jikK.cl:50 (B_BUF)"
+          , "type":"resource"
+          , "data":
+          [0, 0, 26, 0]
+          , "debug":
+          [
+            [
+              {
+                "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                , "line":50
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"table"
+              , "Private memory":"Optimal"
+              , "Requested size":"18432 bytes"
+              , "Implemented size":"32768 bytes"
+              , "Number of banks":"1"
+              , "Bank width":"512 bits"
+              , "Bank depth":"512 words"
+              , "Total replication":"1"
+              , "Additional information":"Requested size 18432 bytes, implemented size 32768 bytes, stall-free, 1 read and 1 write. "
+              , "Reference":
+              [
+                {
+                  "type":"text"
+                  , "text":"See %L for more information."
+                  , "links":
+                  [
+                    {
+                      "guide":"Best Practices Guide : Local Memory"
+                      , "link":"https://www.altera.com/documentation/mwh1391807516407.html#chn1469549457114"
+                    }
+                  ]
+                }
+              ]
+            }
+            , {
+              "type":"text"
+              , "text":"Private memory implemented in on-chip block RAM."
+            }
+          ]
+        }
+        , {
+          "name":"gemm_nnfW.B0"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"Feedback"
+              , "type":"resource"
+              , "data":
+              [5, 2, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Resources for loop-carried dependencies. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce number and size of loop-carried variables"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [5, 2, 0, 0]
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"gemm_nnfW.B1"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"Feedback"
+              , "type":"resource"
+              , "data":
+              [20, 45, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Resources for loop-carried dependencies. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce number and size of loop-carried variables"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"gemm_ntt_jikK.cl:51"
+                  , "type":"resource"
+                  , "data":
+                  [15, 43, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":51
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:58"
+                  , "type":"resource"
+                  , "data":
+                  [5, 2, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":58
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+            , {
+              "name":"Cluster logic"
+              , "type":"resource"
+              , "data":
+              [103, 50, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall. This area cannot be affected directly."
+                }
+              ]
+            }
+            , {
+              "name":"Computation"
+              , "type":"resource"
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [79, 1, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":""
+                        , "line":0
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [33, 0, 0, 0]
+                    }
+                    , {
+                      "name":"And"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [11, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [35, 1, 0, 0]
+                    }
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:51"
+                  , "type":"resource"
+                  , "data":
+                  [44, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":51
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [33, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [11, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"gemm_nnfW.B2"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"State"
+              , "type":"resource"
+              , "data":
+              [439, 501, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Resources for live values and control logic. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce size of local variables"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce scope of local variables, localizing them as much as possible"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce number of nested loops"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [439, 501, 0, 0]
+                }
+              ]
+            }
+            , {
+              "name":"Feedback"
+              , "type":"resource"
+              , "data":
+              [83, 209, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Resources for loop-carried dependencies. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce number and size of loop-carried variables"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [8, 36, 0, 0]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:51"
+                  , "type":"resource"
+                  , "data":
+                  [52, 125, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":51
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:52"
+                  , "type":"resource"
+                  , "data":
+                  [15, 43, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":52
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:58"
+                  , "type":"resource"
+                  , "data":
+                  [8, 5, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":58
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+            , {
+              "name":"Cluster logic"
+              , "type":"resource"
+              , "data":
+              [349, 139, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall. This area cannot be affected directly."
+                }
+              ]
+            }
+            , {
+              "name":"Computation"
+              , "type":"resource"
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [45, 1, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":""
+                        , "line":0
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [33, 0, 0, 0]
+                    }
+                    , {
+                      "name":"And"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [11, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Xor"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [1, 1, 0, 0]
+                    }
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:51"
+                  , "type":"resource"
+                  , "data":
+                  [35, 1, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":51
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [35, 1, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:52"
+                  , "type":"resource"
+                  , "data":
+                  [103, 2, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":52
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [33, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [70, 2, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:53"
+                  , "type":"resource"
+                  , "data":
+                  [911, 2558, 13, 2]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":53
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"'__acl__convert_HalfToFP' Function Call"
+                      , "type":"resource"
+                      , "count":16
+                      , "data":
+                      [224, 320, 0, 0]
+                    }
+                    , {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [33, 0, 0, 0]
+                    }
+                    , {
+                      "name":"32-bit Integer Multiply"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [66, 0, 0, 2]
+                    }
+                    , {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [554, 2214, 13, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Load uses a Burst-coalesced LSU"
+                        }
+                      ]
+                    }
+                    , {
+                      "name":"Store"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [34, 24, 0, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Store uses a Local-pipelined never-stall LSU"
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"Stall-free write to memory declared on gemm_ntt_jikK.cl:50."
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"See %L for more information"
+                          , "links":
+                          [
+                            {
+                              "guide":"Best Practices Guide : Load-Store Units"
+                              , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"gemm_nnfW.B3"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"State"
+              , "type":"resource"
+              , "data":
+              [51, 101, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Resources for live values and control logic. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce size of local variables"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce scope of local variables, localizing them as much as possible"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce number of nested loops"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [51, 101, 0, 0]
+                }
+              ]
+            }
+            , {
+              "name":"Feedback"
+              , "type":"resource"
+              , "data":
+              [5, 2, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Resources for loop-carried dependencies. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce number and size of loop-carried variables"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"gemm_ntt_jikK.cl:62"
+                  , "type":"resource"
+                  , "data":
+                  [5, 2, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":62
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+            , {
+              "name":"Cluster logic"
+              , "type":"resource"
+              , "data":
+              [84, 44, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall. This area cannot be affected directly."
+                }
+              ]
+            }
+            , {
+              "name":"Computation"
+              , "type":"resource"
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [35, 1, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":""
+                        , "line":0
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [35, 1, 0, 0]
+                    }
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:54"
+                  , "type":"resource"
+                  , "data":
+                  [84, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":54
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [33, 0, 0, 0]
+                    }
+                    , {
+                      "name":"33-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [34, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [17, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:56"
+                  , "type":"resource"
+                  , "data":
+                  [66, 0, 0, 2]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":56
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Multiply"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [66, 0, 0, 2]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"gemm_nnfW.B4"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"State"
+              , "type":"resource"
+              , "data":
+              [294, 577, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Resources for live values and control logic. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce size of local variables"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce scope of local variables, localizing them as much as possible"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce number of nested loops"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [294, 577, 0, 0]
+                }
+              ]
+            }
+            , {
+              "name":"Feedback"
+              , "type":"resource"
+              , "data":
+              [135, 389, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Resources for loop-carried dependencies. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce number and size of loop-carried variables"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [25, 101, 0, 0]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:51"
+                  , "type":"resource"
+                  , "data":
+                  [27, 24, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":51
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:52"
+                  , "type":"resource"
+                  , "data":
+                  [9, 8, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":52
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:54"
+                  , "type":"resource"
+                  , "data":
+                  [37.6667, 144.667, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":54
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:56"
+                  , "type":"resource"
+                  , "data":
+                  [25, 101, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":56
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:62"
+                  , "type":"resource"
+                  , "data":
+                  [9, 8, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":62
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:63"
+                  , "type":"resource"
+                  , "data":
+                  [2.33333, 2.33333, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":63
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+            , {
+              "name":"Cluster logic"
+              , "type":"resource"
+              , "data":
+              [548, 184, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall. This area cannot be affected directly."
+                }
+              ]
+            }
+            , {
+              "name":"Computation"
+              , "type":"resource"
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [72, 4, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":""
+                        , "line":0
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [70, 2, 0, 0]
+                    }
+                    , {
+                      "name":"Or"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [1, 1, 0, 0]
+                    }
+                    , {
+                      "name":"Xor"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [1, 1, 0, 0]
+                    }
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:54"
+                  , "type":"resource"
+                  , "data":
+                  [75.3333, 1, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":54
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [33, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":3
+                      , "data":
+                      [42.3333, 1, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:56"
+                  , "type":"resource"
+                  , "data":
+                  [688, 2055, 13, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":56
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"'__acl__convert_HalfToFP' Function Call"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [14, 20, 0, 0]
+                    }
+                    , {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [33, 0, 0, 0]
+                    }
+                    , {
+                      "name":"And"
+                      , "type":"resource"
+                      , "count":3
+                      , "data":
+                      [11, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [11, 1, 0, 0]
+                    }
+                    , {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [494, 2034, 13, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Load uses a Burst-coalesced LSU"
+                        }
+                      ]
+                    }
+                    , {
+                      "name":"Or"
+                      , "type":"resource"
+                      , "count":3
+                      , "data":
+                      [42, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [83, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:57"
+                  , "type":"resource"
+                  , "data":
+                  [66, 0, 0, 2]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":57
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Multiply"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [66, 0, 0, 2]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:63"
+                  , "type":"resource"
+                  , "data":
+                  [3.66667, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":63
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [3.66667, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"gemm_nnfW.B5"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"State"
+              , "type":"resource"
+              , "data":
+              [15079, 29214, 2, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Resources for live values and control logic. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce size of local variables"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce scope of local variables, localizing them as much as possible"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce number of nested loops"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [15079, 29214, 2, 0]
+                }
+              ]
+            }
+            , {
+              "name":"Feedback"
+              , "type":"resource"
+              , "data":
+              [250, 1310, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Resources for loop-carried dependencies. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce number and size of loop-carried variables"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [21, 14, 0, 0]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:51"
+                  , "type":"resource"
+                  , "data":
+                  [60, 42, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":51
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:52"
+                  , "type":"resource"
+                  , "data":
+                  [20, 14, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":52
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:54"
+                  , "type":"resource"
+                  , "data":
+                  [13.3333, 9.33333, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":54
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:56"
+                  , "type":"resource"
+                  , "data":
+                  [89.3333, 863.333, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":56
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:57"
+                  , "type":"resource"
+                  , "data":
+                  [20, 138, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":57
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:59"
+                  , "type":"resource"
+                  , "data":
+                  [6.66667, 88.6667, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":59
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:60"
+                  , "type":"resource"
+                  , "data":
+                  [6.66667, 88.6667, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":60
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:61"
+                  , "type":"resource"
+                  , "data":
+                  [6.33333, 47.3333, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":61
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:63"
+                  , "type":"resource"
+                  , "data":
+                  [6.66667, 4.66667, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":63
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+            , {
+              "name":"Cluster logic"
+              , "type":"resource"
+              , "data":
+              [520, 233, 3, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall. This area cannot be affected directly."
+                }
+              ]
+            }
+            , {
+              "name":"Computation"
+              , "type":"resource"
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [10030, 173, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":""
+                        , "line":0
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"'Count leading zeros' Function Call"
+                      , "type":"resource"
+                      , "count":14
+                      , "data":
+                      [238, 0, 0, 0]
+                    }
+                    , {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":35
+                      , "data":
+                      [1155, 0, 0, 0]
+                    }
+                    , {
+                      "name":"32-bit Integer Subtract"
+                      , "type":"resource"
+                      , "count":28
+                      , "data":
+                      [924, 0, 0, 0]
+                    }
+                    , {
+                      "name":"And"
+                      , "type":"resource"
+                      , "count":192
+                      , "data":
+                      [1328, 8, 0, 0]
+                    }
+                    , {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":84
+                      , "data":
+                      [1260, 58, 0, 0]
+                    }
+                    , {
+                      "name":"Or"
+                      , "type":"resource"
+                      , "count":56
+                      , "data":
+                      [11, 11, 0, 0]
+                    }
+                    , {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":203
+                      , "data":
+                      [4652, 96, 0, 0]
+                    }
+                    , {
+                      "name":"Xor"
+                      , "type":"resource"
+                      , "count":71
+                      , "data":
+                      [462, 0, 0, 0]
+                    }
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:54"
+                  , "type":"resource"
+                  , "data":
+                  [35, 1, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":54
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [35, 1, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:56"
+                  , "type":"resource"
+                  , "data":
+                  [620.667, 1, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":56
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":4
+                      , "data":
+                      [66, 0, 0, 0]
+                    }
+                    , {
+                      "name":"32-bit Integer Subtract"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [22, 0, 0, 0]
+                    }
+                    , {
+                      "name":"33-bit Integer Add"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [22.6667, 0, 0, 0]
+                    }
+                    , {
+                      "name":"64-bit Integer Add"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [43.3333, 0, 0, 0]
+                    }
+                    , {
+                      "name":"And"
+                      , "type":"resource"
+                      , "count":61
+                      , "data":
+                      [125.333, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":26
+                      , "data":
+                      [123.333, 1, 0, 0]
+                    }
+                    , {
+                      "name":"Or"
+                      , "type":"resource"
+                      , "count":19
+                      , "data":
+                      [48.3333, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":24
+                      , "data":
+                      [115.667, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Xor"
+                      , "type":"resource"
+                      , "count":13
+                      , "data":
+                      [54, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:57"
+                  , "type":"resource"
+                  , "data":
+                  [811, 2534, 13, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":57
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"'__acl__convert_HalfToFP' Function Call"
+                      , "type":"resource"
+                      , "count":16
+                      , "data":
+                      [224, 320, 0, 0]
+                    }
+                    , {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [33, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [554, 2214, 13, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Load uses a Burst-coalesced LSU"
+                        }
+                      ]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:58"
+                  , "type":"resource"
+                  , "data":
+                  [288, 521, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":58
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"And"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [11, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [11, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [266, 521, 0, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Load uses a Local-pipelined never-stall LSU"
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"Stall-free read from memory declared on gemm_ntt_jikK.cl:50."
+                        }
+                        , {
+                          "type":"text"
+                          , "text":"See %L for more information"
+                          , "links":
+                          [
+                            {
+                              "guide":"Best Practices Guide : Load-Store Units"
+                              , "link":"https://www.altera.com/documentation/mwh1391807516407.html#yeo1491314105959"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:59"
+                  , "type":"resource"
+                  , "data":
+                  [19131, 443.333, 0, 16]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":59
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":61
+                      , "data":
+                      [1947, 0, 0, 0]
+                    }
+                    , {
+                      "name":"32-bit Integer Subtract"
+                      , "type":"resource"
+                      , "count":11
+                      , "data":
+                      [319, 0, 0, 0]
+                    }
+                    , {
+                      "name":"64-bit Integer Add"
+                      , "type":"resource"
+                      , "count":18
+                      , "data":
+                      [1083.33, 0, 0, 0]
+                    }
+                    , {
+                      "name":"64-bit Integer Multiply"
+                      , "type":"resource"
+                      , "count":16
+                      , "data":
+                      [0, 0, 0, 16]
+                    }
+                    , {
+                      "name":"And"
+                      , "type":"resource"
+                      , "count":610
+                      , "data":
+                      [2489.33, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":241
+                      , "data":
+                      [3142.33, 163.333, 0, 0]
+                    }
+                    , {
+                      "name":"Or"
+                      , "type":"resource"
+                      , "count":290
+                      , "data":
+                      [3054.33, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":239
+                      , "data":
+                      [5343.67, 272, 0, 0]
+                    }
+                    , {
+                      "name":"Xor"
+                      , "type":"resource"
+                      , "count":132
+                      , "data":
+                      [1752, 8, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:60"
+                  , "type":"resource"
+                  , "data":
+                  [541, 0.333333, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":60
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":3
+                      , "data":
+                      [33, 0, 0, 0]
+                    }
+                    , {
+                      "name":"32-bit Integer Subtract"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [22, 0, 0, 0]
+                    }
+                    , {
+                      "name":"64-bit Integer Add"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [43.3333, 0, 0, 0]
+                    }
+                    , {
+                      "name":"And"
+                      , "type":"resource"
+                      , "count":60
+                      , "data":
+                      [125.333, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":24
+                      , "data":
+                      [99.3333, 0.333333, 0, 0]
+                    }
+                    , {
+                      "name":"Or"
+                      , "type":"resource"
+                      , "count":19
+                      , "data":
+                      [48.3333, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":24
+                      , "data":
+                      [115.667, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Xor"
+                      , "type":"resource"
+                      , "count":13
+                      , "data":
+                      [54, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:61"
+                  , "type":"resource"
+                  , "data":
+                  [23.3333, 0.333333, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":61
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"33-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [11.3333, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [12, 0.333333, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"gemm_nnfW.B6"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"State"
+              , "type":"resource"
+              , "data":
+              [36, 71, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Resources for live values and control logic. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce size of local variables"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce scope of local variables, localizing them as much as possible"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce number of nested loops"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [36, 71, 0, 0]
+                }
+              ]
+            }
+            , {
+              "name":"Cluster logic"
+              , "type":"resource"
+              , "data":
+              [44, 28, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall. This area cannot be affected directly."
+                }
+              ]
+            }
+            , {
+              "name":"Computation"
+              , "type":"resource"
+              , "children":
+              [
+                {
+                  "name":"gemm_ntt_jikK.cl:56"
+                  , "type":"resource"
+                  , "data":
+                  [153, 1, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":56
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"And"
+                      , "type":"resource"
+                      , "count":4
+                      , "data":
+                      [54, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [21, 1, 0, 0]
+                    }
+                    , {
+                      "name":"Or"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [11, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Select"
+                      , "type":"resource"
+                      , "count":2
+                      , "data":
+                      [67, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:62"
+                  , "type":"resource"
+                  , "data":
+                  [413, 2220, 17, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":62
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"'__acl__convert_FPtoHalf' Function Call"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [14, 20, 0, 0]
+                    }
+                    , {
+                      "name":"Store"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [399, 2200, 17, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Store uses a Burst-coalesced write-ack LSU"
+                        }
+                      ]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"gemm_nnfW.B7"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"Feedback"
+              , "type":"resource"
+              , "data":
+              [50, 38, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Resources for loop-carried dependencies. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce number and size of loop-carried variables"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"gemm_ntt_jikK.cl:58"
+                  , "type":"resource"
+                  , "data":
+                  [25, 19, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":58
+                      }
+                    ]
+                  ]
+                }
+                , {
+                  "name":"gemm_ntt_jikK.cl:62"
+                  , "type":"resource"
+                  , "data":
+                  [25, 19, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+                        , "line":62
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+        , {
+          "name":"gemm_nnfW.B8"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"Feedback"
+              , "type":"resource"
+              , "data":
+              [3, 8, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"text"
+                  , "text":"Resources for loop-carried dependencies. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce number and size of loop-carried variables"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [3, 8, 0, 0]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

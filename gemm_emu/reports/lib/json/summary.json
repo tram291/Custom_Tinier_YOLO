@@ -1,0 +1,222 @@
+{
+  "performanceSummary":
+  {
+    "name":"Kernel Summary"
+    , "columns":
+    ["Kernel Name", "Kernel Type", "Autorun", "Workgroup Size", "# Compute Units"]
+    , "children":
+    [
+      {
+        "name":"gemm_nn9W"
+        , "data":
+        [
+          "Single work-item"
+          , "No"
+          , [1, 1, 1]
+          , 1
+        ]
+        , "details":
+        [
+          {
+            "type":"text"
+            , "text":"Kernel type: Single work-item"
+          }
+          , {
+            "type":"text"
+            , "text":"Required workgroup size: (1, 1, 1)"
+          }
+          , {
+            "type":"text"
+            , "text":"Maximum workgroup size: 1"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+              , "line":14
+            }
+          ]
+        ]
+      }
+      , {
+        "name":"gemm_nnfW"
+        , "data":
+        [
+          "Single work-item"
+          , "No"
+          , [1, 1, 1]
+          , 1
+        ]
+        , "details":
+        [
+          {
+            "type":"text"
+            , "text":"Kernel type: Single work-item"
+          }
+          , {
+            "type":"text"
+            , "text":"Required workgroup size: (1, 1, 1)"
+          }
+          , {
+            "type":"text"
+            , "text":"Maximum workgroup size: 1"
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+              , "line":46
+            }
+          ]
+        ]
+      }
+    ]
+  }
+  , "estimatedResources":
+  {
+    "name":"Estimated Resource Usage"
+    , "columns":
+    ["Kernel Name", "ALUTs ", "FFs  ", "RAMs ", "DSPs "]
+    , "children":
+    [
+      {
+        "name":"gemm_nn9W"
+        , "data":
+        [40316, 37821, 145, 15]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+              , "line":14
+            }
+          ]
+        ]
+      }
+      , {
+        "name":"gemm_nnfW"
+        , "data":
+        [54065, 45415, 87, 22]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+              , "line":46
+            }
+          ]
+        ]
+      }
+      , {
+        "name":"Kernel Subtotal"
+        , "classes":
+        ["summary-highlight", "nohover"]
+        , "data":
+        [94381, 83236, 232, 37]
+      }
+      , {
+        "name":"Global Interconnect"
+        , "classes":
+        ["summary-highlight", "nohover"]
+        , "data":
+        [792, 3014, 10, 0]
+      }
+      , {
+        "name":"Board Interface"
+        , "classes":
+        ["summary-highlight", "nohover"]
+        , "data":
+        [2160, 1908, 20, 0]
+      }
+      , {
+        "name":"Total"
+        , "classes":
+        ["summary-highlight", "nohover"]
+        , "data":
+        [97333, 88158, 262, 37]
+        , "data_percent":
+        [88.8302, 40.2283, 50.9728, 33.0357]
+      }
+      , {
+        "name":"Available"
+        , "classes":
+        ["summary-highlight", "nohover"]
+        , "data":
+        [109572, 219144, 514, 112]
+      }
+    ]
+  }
+  , "compileWarnings":
+  {
+    "name":"Compile Warnings"
+    , "children":
+    [
+      {
+        "name":"Load uses a Burst-coalesced non-aligned LSU"
+        , "details":
+        [
+          {
+            "type":"text"
+            , "text":"Use Dynamic Profiler to determine performance impact of this LSU."
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+              , "line":21
+            }
+          ]
+          , [
+            {
+              "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+              , "line":22
+            }
+          ]
+          , [
+            {
+              "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+              , "line":23
+            }
+          ]
+        ]
+      }
+      , {
+        "name":"Load uses a Burst-coalesced non-aligned LSU"
+        , "details":
+        [
+          {
+            "type":"text"
+            , "text":"Use Dynamic Profiler to determine performance impact of this LSU."
+          }
+        ]
+        , "debug":
+        [
+          [
+            {
+              "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+              , "line":28
+            }
+          ]
+          , [
+            {
+              "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+              , "line":29
+            }
+          ]
+          , [
+            {
+              "filename":"/home/tram/darknet_ttt/ocl/gemm_ntt_jikK.cl"
+              , "line":30
+            }
+          ]
+        ]
+      }
+    ]
+  }
+}
